@@ -1,0 +1,14 @@
+body {
+    background: url('https://i.ibb.co/6w1XNLp/twinkling.png') repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Agar elemen website tetap di depan */
+.container, header, main {
+    position: relative;
+    z-index: 10;
+}
