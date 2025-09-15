@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galaksi Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen flex flex-col relative overflow-hidden">
+
+  <script>
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+
+  <header class="relative z-10 p-4 border-b border-gray-700 flex items-center justify-between bg-gray-900/70 backdrop-blur-sm">
+    <div class="flex items-center gap-4">
+      <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-600">🌌 Galaksi Admin</h1>
+      <div class="text-sm text-gray-300">
+        Selamat datang, <span id="profileUsername" class="font-semibold text-blue-400"></span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 text-sm">
+      Total: <span id="total">0</span> |
+      <span class="text-green-400">Tersedia: <span id="tersedia">0</span></span> |
+      <span class="text-red-400">Terjual: <span id="terjual">0</span></span>
+      <button onclick="logout()" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-lg text-sm font-semibold">Logout</button>
+    </div>
+  </header>
+
+  <main class="flex-1 p-4 flex gap-6 relative z-10">
+
+    <div class="flex-1 bg-gray-800/60 rounded-xl p-6 shadow-2xl border border-gray-700">
+      <h2 class="text-xl font-semibold mb-4 text-purple-300">📦 Daftar Item Galaksi</h2>
+      <input id="search" type="text" placeholder="Cari item di galaksi..."
+        class="w-full mb-4 px-4 py-2 rounded-lg bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 border border-gray-600">
+      <ul id="stokList" class="space-y-3 text-sm">
+        <p class="text-gray-400">Belum ada item ditambahkan...</p>
+      </ul>
+    </div>
+
+    <div class="w-80 bg-gray-800/60 rounded-xl p-6 shadow-2xl border border-gray-700">
+      <h2 class="text-xl font-semibold mb-4 text-yellow-300">➕ Tambah Item Baru</h2>
+      <input id="namaProduk" type="text" placeholder="Nama item..."
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <input id="hargaProduk" type="number" placeholder="Harga (Rp)"
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <input id="statusProduk" type="text" placeholder="Status (contoh: Datpen)"
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <input id="invenUrlProduk" type="text" placeholder="URL Inventaris..."
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <textarea id="deskripsiProduk" placeholder="Game..."
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600"></textarea>
+      <input type="text" id="usernameRoblox" placeholder="Roblox ID..."
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <input type="number" id="stokProduk" placeholder="Jumlah Stok..."
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600">
+      <input type="text" id="urlProduk" value="" readonly
+        class="w-full mb-3 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 cursor-not-allowed text-gray-400">
+      <label class="block text-sm text-gray-300 mb-2">Unggah Foto Item:</label>
+      <input type="file" id="fotoProduk" accept="image/*" multiple
+        class="w-full mb-4 px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-600">
+      <button onclick="tambahProduk()"
+        class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold text-lg">Kirim ke Webhook</button>
+      <button onclick="resetForm()"
+        class="w-full bg-gray-600 hover:bg-gray-700 py-3 rounded-lg font-semibold mt-3 text-lg">Reset Form</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
