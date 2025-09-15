@@ -1,5 +1,5 @@
 // Ganti dengan webhook Discord Anda
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1416665930523611136/fy3He59UHX07SzTdnAT5tqyxTAXDVnt_b_fFyctXGvjnYKs96iqDqz-73mkInqhmPNbv";
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1417179960094883853/9985iNzHJc09P_7WAORvYcINNyPQ-ok1E1Un0VnSkcOf5bfoV7cIZjwAf577Hn7rBaY7";
 
 // Fungsi untuk menyimpan data ke localStorage
 function saveData(data) {
@@ -139,4 +139,5 @@ document.getElementById("profileUsername").innerText = localStorage.getItem("log
 // Muat data saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
   renderProduk(loadData());
+
 });
